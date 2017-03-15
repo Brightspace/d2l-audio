@@ -2,13 +2,12 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../d2l-icons/tier3-icons.html">
 <link rel="import" href="../d2l-media-behavior/d2l-media-behavior.html">
+<link rel="import" href="./d2l-waveform.html">
 
 <dom-module id="d2l-audio-mini">
 	<template>
 		<style is="custom-style" include="iron-flex iron-flex-alignment d2l-typography">
 			:host {
-				width: 270px;
-				height: 30px;
 				position: relative;
 			}
 
@@ -33,7 +32,7 @@
 		</style>
 
 		<div on-tap="playPause">
-			<canvas width="270" height="30" id="waveform"></canvas>
+			<d2l-waveform height-ratios="[[ waveformHeightRatios ]]"></d2l-waveform>
 
 			<audio id="media" preload="{{ _setPreload() }}">
 				<source src="{{ src }}">
@@ -52,41 +51,18 @@
 				D2LMediaBehavior
 			],
 
-			_drawWaveformLine: function(x, height) {
-				var context = this.context;
-				context.beginPath();
-				context.moveTo(x, this.height);
-				context.lineTo(x, this.height - ((height / 100) * this.height));
-				context.lineWidth = 2;
-				context.strokeStyle = '#d3d9e3';
-				context.lineCap = 'round';
-				context.stroke();
-				context.closePath();
+			properties: {
+				waveformHeightRatios: {
+					type: Array,
+					value: undefined
+				}
 			},
 
 			ready: function() {
-				this.height = 30;
-
-				var self = this;
-				var canvas = this.$.waveform;
-				this.context = canvas.getContext('2d');
-
-				var heights = [
-					25, 50, 58, 75, 70, 55, 100, 83, 93, 90,
-					67, 95, 83, 80, 83, 75, 55, 45, 45, 50,
-					53, 48, 45, 38, 40, 40, 40, 40, 40, 45,
-					63, 63, 67, 55, 53, 58, 34, 35, 31, 80,
-					75, 74, 72, 69, 75, 76, 79, 75, 73, 75,
-					73, 74, 70, 67, 67, 75, 70, 73, 71, 60,
-					51, 15, 38, 40, 93, 85, 83, 81, 80, 78,
-					73, 74, 73, 75, 80, 90, 90, 80, 35, 33,
-					45, 48, 45, 28, 35, 38, 28, 30, 30, 30];
-
-				var x = 1;
-				heights.forEach(function(h) {
-					self._drawWaveformLine(x, h);
-					x += 3;
-				});
+				var numWaveformLines = this.waveformHeightRatios ? this.waveformHeightRatios.length : 90;
+				var waveformLineSpacing = 1;
+				var waveformLineWidth = 2;
+				this.style.width = (numWaveformLines * (waveformLineSpacing + waveformLineWidth)) + 'px';
 			}
 		});
 
