@@ -15,7 +15,7 @@ Polymer audio player component.
   		]
 	},
 	"resolvers": [
-  	"bower-art-resolver"
+		"bower-art-resolver"
 	]
 }
 ```
