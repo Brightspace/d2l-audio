@@ -34,9 +34,11 @@ Polymer audio player component.
 
 ## General Properties
 
-* `src (String)`: Audio URL or URL where the audio URL can be requested (see `requestSrc`).
-* `auto-load (Boolean)`: If set, the audio is loaded immediately when the component is loaded (or the `src` changes). Otherwise, the audio is loaded when the play button is pressed.
-* `request-src (Boolean)`: If set, the audio URL is requested from the `src` URL. The response to this request must be *JSON* in the following format:
+`src (String)`: Audio URL or URL where the audio URL can be requested (see `requestSrc`).
+
+`auto-load (Boolean)`: If set, the audio is loaded immediately when the component is loaded (or the `src` changes). Otherwise, the audio is loaded when the play button is pressed.
+
+`request-src (Boolean)`: If set, the audio URL is requested from the `src` URL. The response to this request must be *JSON* in the following format:
 
 ```
 {
@@ -46,13 +48,13 @@ Polymer audio player component.
 
 This is useful when auto-load is not set, for supporting signed audio URLs that may expire prior to the play button being pressed.
 
-### <d2l-audio> Properties
+### `<d2l-audio>` Properties
 
-* `info (String)`: Extra information rendered within the component.
+`info (String)`: Extra information rendered within the component.
 
-### <d2l-audio-mini> Properties
+### `<d2l-audio-mini>` Properties
 
-* `waveform-height-ratios (Array)`: Array of values between 0 and 1, used to set the heights of each waveform line.
+`waveform-height-ratios (Array)`: Array of values between 0 and 1, used to set the heights of each waveform line.
 
 ## Development
 
