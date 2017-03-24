@@ -31,12 +31,10 @@
 			}
 		</style>
 
-		<div on-tap="playPause">
+		<div on-tap="_playPause">
 			<d2l-waveform height-ratios="[[ waveformHeightRatios ]]"></d2l-waveform>
 
-			<audio id="media" preload="{{ _setPreload() }}">
-				<source src="{{ src }}">
-			</audio>
+			<audio id="media" preload="{{ _getPreload(autoLoad) }}"></audio>
 
 			<d2l-icon hidden$="{{ isPlaying }}" icon="d2l-tier3:play"></d2l-icon>
 			<d2l-icon hidden$="{{ !isPlaying }}" icon="d2l-tier3:pause"></d2l-icon>
