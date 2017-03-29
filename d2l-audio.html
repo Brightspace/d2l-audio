@@ -59,7 +59,7 @@
 		</style>
 
 		<div class="layout horizontal center d2l-typography">
-			<button is="d2l-button" id="playPauseButton" primary on-tap="playPause">
+			<button is="d2l-button" id="playPauseButton" primary on-tap="_playPause">
         <d2l-icon hidden$="{{ isPlaying }}" icon="d2l-tier3:play-borderless"></d2l-icon>
         <d2l-icon hidden$="{{ !isPlaying }}" icon="d2l-tier3:pause-borderless"></d2l-icon>
       </button>
@@ -76,9 +76,7 @@
 
 		<div class="info-placeholder"></div>
 
-		<audio id="media" preload="{{ _setPreload() }}">
-			<source src="{{ src }}">
-		</audio>
+		<audio id="media" preload="{{ _getPreload(autoLoad) }}"></audio>
 	</template>
 
 	<script>
