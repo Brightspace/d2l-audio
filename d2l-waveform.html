@@ -8,7 +8,6 @@
 			:host {
 				position: relative;
 			}
-
 		</style>
 
 		<canvas height="{{height}}" width="{{width}}" id="waveform"></canvas>
@@ -25,9 +24,9 @@
 						.25, .50, .58, .75, .70, .55, 1.0, .83, .93, .90,
 						.67, .95, .83, .80, .83, .75, .55, .45, .45, .50,
 						.53, .48, .45, .38, .40, .40, .40, .40, .40, .45,
-						.63, .63, .67, .55, .53, .58, .34, .35, .31, .80,
-						.75, .74, .72, .69, .75, .76, .79, .75, .73, .75,
-						.73, .74, .70, .67, .67, .75, .70, .73, .71, .60,
+						.63, .63, .67, .55, .53, .58, .34, .35, .31, .00,
+						.00, .00, .00, .00, .00, .00, .00, .00, .00, .00,
+						.00, .00, .70, .67, .67, .75, .70, .73, .71, .60,
 						.51, .15, .38, .40, .93, .85, .83, .81, .80, .78,
 						.73, .74, .73, .75, .80, .90, .90, .80, .35, .33,
 						.45, .48, .45, .28, .35, .38, .28, .30, .30, .30
@@ -48,12 +47,16 @@
 				},
 				color: {
 					type: String,
-					value: '#D3D9E3'
+					value: '#D3D8E2'
 				}
 			},
 
-			_drawWaveformLine: function(x, heightRatio) {
-				var context = this.context;
+			observers: [
+				'_onPropChange(height, lineWidth, lineSpacing, color)'
+			],
+
+			_drawWaveformLine: function(context, x, heightRatio) {
+				if (heightRatio === 0) return;
 				context.beginPath();
 				context.moveTo(x, this.height);
 				context.lineTo(x, this.height - (heightRatio * this.height));
@@ -64,19 +67,25 @@
 				context.closePath();
 			},
 
-			ready: function() {
+			_drawWaveform: function() {
 				var self = this;
-				var heightRatios = this.heightRatios;
-				this.width = heightRatios.length * (this.lineWidth + this.lineSpacing);
-
 				var canvas = this.$.waveform;
-				this.context = canvas.getContext('2d');
+				var context = canvas.getContext('2d');
+
+				context.clearRect(0, 0, canvas.width, canvas.height);
+
+				this.width = this.heightRatios.length * (this.lineWidth + this.lineSpacing);
 
 				var x = this.lineSpacing;
+				var heightRatios = this.heightRatios;
 				heightRatios.forEach(function(h) {
-					self._drawWaveformLine(x, h);
+					self._drawWaveformLine(context, x, h);
 					x += self.lineWidth + self.lineSpacing;
 				});
+			},
+
+			_onPropChange: function() {
+				this._drawWaveform();
 			}
 		});
 
