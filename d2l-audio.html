@@ -28,6 +28,10 @@
 				display: none;
 			}
 
+			.layout {
+				overflow-x: hidden;
+			}
+
 			.timeline-container {
 				width: 100%;
 			}
@@ -35,6 +39,10 @@
 			.play-container {
 				margin-bottom: 5px;
 				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				cursor: pointer;
 			}
 
 			.play-container d2l-icon {
@@ -62,10 +70,6 @@
 
 			.pause-icon {
 				color: var(--d2l-color-ferrite);
-			}
-
-			.play-container {
-				cursor: pointer;
 			}
 		</style>
 
