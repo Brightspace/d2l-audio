@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../d2l-button/d2l-button.html">
 <link rel="import" href="../d2l-icons/d2l-icon.html">
@@ -107,7 +108,8 @@
 			is: 'd2l-audio',
 
 			behaviors: [
-				D2LMediaBehavior
+				D2LMediaBehavior,
+				Polymer.IronA11yKeysBehavior
 			],
 
 			properties: {
@@ -126,6 +128,14 @@
 						.33, .32, .31
 					]
 				}
+			},
+
+			hostAttributes: {
+				tabindex: 0
+			},
+
+			keyBindings: {
+				'space': '_playPause'
 			},
 
 			_getWaveformColor: function(isPlaying) {
