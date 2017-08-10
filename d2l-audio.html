@@ -29,7 +29,7 @@
 				display: none;
 			}
 
-			.layout {
+			.container {
 				overflow-x: hidden;
 			}
 
@@ -74,14 +74,14 @@
 			}
 		</style>
 
-		<div class="layout vertical center d2l-typography">
+		<div class="container layout vertical center d2l-typography">
 			<div class="play-container" on-tap="_playPause">
 				<d2l-waveform color="[[ _getWaveformColor(isPlaying) ]]" height-ratios="[[ waveformHeightRatios ]]" height="60" line-width="4" line-spacing="2"></d2l-waveform>
 				<d2l-icon class="play-icon" hidden$="{{ isPlaying }}" icon="d2l-tier3:play"></d2l-icon>
 				<d2l-icon class="pause-icon" hidden$="{{ !isPlaying }}" icon="d2l-tier3:pause"></d2l-icon>
 			</div>
 
-			<div class="timeline-container layout horizontal center">
+			<div class="timeline-container layout horizontal center" dir="ltr">
 				<div class="time-container">
 					{{ _formatTime(currentTime) }}
 				</div>
