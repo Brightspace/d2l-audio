@@ -2,6 +2,14 @@
 
 Polymer audio player component.
 
+### `<d2l-audio>` Example
+
+![d2l-audio Example](example.png)
+
+### `<d2l-audio-mini>` Example
+
+![d2l-audio-mini Example](example-mini.png)
+
 ## Usage
 
 * Install [bower-art-resolver](https://www.npmjs.com/package/bower-art-resolver).
