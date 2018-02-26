@@ -26,6 +26,6 @@
     "iron-flex-layout": "^2.0.3",
     "iron-range-behavior": "^2.1.0",
     "d2l-colors": "^3.1.2",
-    "webcomponentsjs": "^0.7",
+    "webcomponentsjs": "^0.7"
   }
 }
