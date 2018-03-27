@@ -10,7 +10,7 @@
 			}
 		</style>
 
-		<canvas height="{{height}}" width="{{width}}" id="waveform"></canvas>
+		<canvas height="{{height}}" width="{{_width}}" id="waveform"></canvas>
 	</template>
 
 	<script>
@@ -48,7 +48,8 @@
 				color: {
 					type: String,
 					value: '#D3D8E2'
-				}
+				},
+				_width: Number
 			},
 
 			observers: [
@@ -74,7 +75,7 @@
 
 				context.clearRect(0, 0, canvas.width, canvas.height);
 
-				this.width = this.heightRatios.length * (this.lineWidth + this.lineSpacing);
+				this._width = this.heightRatios.length * (this.lineWidth + this.lineSpacing);
 
 				var x = this.lineSpacing;
 				var heightRatios = this.heightRatios;
