@@ -23,6 +23,9 @@
         "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
         "iron-range-behavior": "PolymerElements/iron-range-behavior#^1.0.0",
         "polymer": "Polymer/polymer#^1.9.0"
+      },
+      "resolutions": {
+        "webcomponentsjs": "^0.7.24"
       }
     }
   },
@@ -41,5 +44,8 @@
   "devDependencies": {
     "web-component-tester": "^6.5.0",
     "iron-component-page": "^3.0.1"
+  },
+  "resolutions": {
+    "webcomponentsjs": "^1.1.1"
   }
 }
