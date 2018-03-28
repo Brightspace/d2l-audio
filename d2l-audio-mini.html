@@ -1,10 +1,14 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../d2l-icons/d2l-icon.html">
 <link rel="import" href="../d2l-icons/tier3-icons.html">
 <link rel="import" href="../d2l-media-behavior/d2l-media-behavior.html">
-<link rel="import" href="./d2l-waveform.html">
+<link rel="import" href="d2l-waveform.html">
 
+<!--
+@demo demo/mini.html
+-->
 <dom-module id="d2l-audio-mini">
 	<template>
 		<style include="iron-flex iron-flex-alignment d2l-typography">
@@ -52,11 +56,13 @@
 	</template>
 
 	<script>
+		window.D2L = window.D2L || {};
+		window.D2L.MediaBehavior = window.D2L.MediaBehavior || window.D2LMediaBehavior;
 		Polymer({
 			is: 'd2l-audio-mini',
 
 			behaviors: [
-				D2LMediaBehavior,
+				window.D2L.MediaBehavior,
 				Polymer.IronA11yKeysBehavior
 			],
 
