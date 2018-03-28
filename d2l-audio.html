@@ -7,7 +7,11 @@
 <link rel="import" href="../d2l-media-behavior/d2l-media-behavior.html">
 <link rel="import" href="../d2l-seek-bar/d2l-seek-bar.html">
 <link rel="import" href="../d2l-typography/d2l-typography.html">
+<link rel="import" href="d2l-waveform.html">
 
+<!--
+@demo demo/index.html
+-->
 <dom-module id="d2l-audio">
 	<template>
 		<style include="iron-flex iron-flex-alignment d2l-typography">
@@ -104,11 +108,13 @@
 	</template>
 
 	<script>
+		window.D2L = window.D2L || {};
+		window.D2L.MediaBehavior = window.D2L.MediaBehavior || window.D2LMediaBehavior;
 		Polymer({
 			is: 'd2l-audio',
 
 			behaviors: [
-				D2LMediaBehavior,
+				window.D2L.MediaBehavior,
 				Polymer.IronA11yKeysBehavior
 			],
 
@@ -127,7 +133,9 @@
 						.45, .50, .45, .30, .38, .40, .30, .35, .35, .35,
 						.33, .32, .31
 					]
-				}
+				},
+
+				info: String
 			},
 
 			hostAttributes: {
