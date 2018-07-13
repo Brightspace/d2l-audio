@@ -1,11 +1,11 @@
 {
 	"registry": {
 		"search": [
-			"https://ro-dev:AP3hK9qVHxhdvdFwPeGMw2bj5eWeuDJZuRCdBB@d2lartifacts.artifactoryonline.com/d2lartifacts/api/bower/bower-local",
+			"https://ro-bower-d2l-audio:ApfA2-pjkoGOBN9C4CMTHpBNjg1Np4rQKy8TQl20uZoUJXUeJyIwoxh9nTZDf_AmKth2EWU5QZlrdvtG3fSz0Q@d2lartifacts.artifactoryonline.com/d2lartifacts/api/bower/bower-local",
 			"https://bower.herokuapp.com"
-  		]
+		]
 	},
 	"resolvers": [
-  	"bower-art-resolver"
+		"bower-art-resolver"
 	]
 }
