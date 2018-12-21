@@ -1,18 +1,26 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
-<link rel="import" href="../d2l-icons/d2l-icon.html">
-<link rel="import" href="../d2l-icons/tier3-icons.html">
-<link rel="import" href="../d2l-media-behavior/d2l-media-behavior.html">
-<link rel="import" href="../d2l-seek-bar/d2l-seek-bar.html">
-<link rel="import" href="../d2l-typography/d2l-typography.html">
-<link rel="import" href="d2l-waveform.html">
-
-<!--
+/**
 @demo demo/index.html
--->
-<dom-module id="d2l-audio">
-	<template strip-whitespace>
+*/
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+import '@polymer/polymer/polymer-legacy.js';
+
+import { IronA11yKeysBehavior } from '@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js';
+import '@polymer/iron-flex-layout/iron-flex-layout-classes.js';
+import 'd2l-icons/d2l-icon.js';
+import 'd2l-icons/tier3-icons.js';
+import '@d2l/media-behavior/d2l-media-behavior.js';
+import '@d2l/seek-bar/d2l-seek-bar.js';
+import 'd2l-typography/d2l-typography.js';
+import './d2l-waveform.js';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<dom-module id="d2l-audio">
+	<template strip-whitespace="">
 		<style include="iron-flex iron-flex-alignment d2l-typography">
 			:host {
 				display: inline-block;
@@ -106,50 +114,50 @@
 		</div>
 	</template>
 
-	<script>
-		window.D2L = window.D2L || {};
-		window.D2L.MediaBehavior = window.D2L.MediaBehavior || window.D2LMediaBehavior;
-		Polymer({
-			is: 'd2l-audio',
+	
 
-			behaviors: [
-				window.D2L.MediaBehavior,
-				Polymer.IronA11yKeysBehavior
-			],
+</dom-module>`;
 
-			properties: {
-				waveformHeightRatios: {
-					type: Array,
-					value: [
-						.30, .50, .60, .80, .75, .62, .99, .83, .96, .94,
-						.70, .94, .92, .91, .92, .88, .60, .45, .45, .55,
-						.58, .50, .45, .40, .42, .42, .42, .42, .42, .48,
-						.63, .63, .70, .60, .58, .62, .85, .90, .80, .82,
-						.80, .78, .00, .00, .00, .00, .00, .00, .00, .00,
-						.75, .75, .75, .70, .70, .79, .75, .77, .62, .60,
-						.62, .18, .40, .42, .90, .80, .80, .74, .78, .65,
-						.60, .62, .62, .66, .73, .70, .70, .58, .40, .38,
-						.45, .50, .45, .30, .38, .40, .30, .35, .35, .35,
-						.33, .32, .31
-					]
-				},
+document.head.appendChild($_documentContainer.content);
+window.D2L = window.D2L || {};
+window.D2L.MediaBehavior = window.D2L.MediaBehavior || window.D2LMediaBehavior;
+Polymer({
+	is: 'd2l-audio',
 
-				info: String
-			},
+	behaviors: [
+		window.D2L.MediaBehavior,
+		IronA11yKeysBehavior
+	],
 
-			hostAttributes: {
-				tabindex: 0
-			},
+	properties: {
+		waveformHeightRatios: {
+			type: Array,
+			value: [
+				.30, .50, .60, .80, .75, .62, .99, .83, .96, .94,
+				.70, .94, .92, .91, .92, .88, .60, .45, .45, .55,
+				.58, .50, .45, .40, .42, .42, .42, .42, .42, .48,
+				.63, .63, .70, .60, .58, .62, .85, .90, .80, .82,
+				.80, .78, .00, .00, .00, .00, .00, .00, .00, .00,
+				.75, .75, .75, .70, .70, .79, .75, .77, .62, .60,
+				.62, .18, .40, .42, .90, .80, .80, .74, .78, .65,
+				.60, .62, .62, .66, .73, .70, .70, .58, .40, .38,
+				.45, .50, .45, .30, .38, .40, .30, .35, .35, .35,
+				.33, .32, .31
+			]
+		},
 
-			keyBindings: {
-				'space': '_playPause'
-			},
+		info: String
+	},
 
-			_getWaveformColor: function(isPlaying) {
-				return isPlaying ? '#99C5E5' : '#D3D9E3';
-			}
-		});
+	hostAttributes: {
+		tabindex: 0
+	},
 
-	</script>
+	keyBindings: {
+		'space': '_playPause'
+	},
 
-</dom-module>
+	_getWaveformColor: function(isPlaying) {
+		return isPlaying ? '#99C5E5' : '#D3D9E3';
+	}
+});
