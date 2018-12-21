@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Polymer audio player component",
   "scripts": {
-    "lint": "eslint *.html && polymer lint",
+    "lint": "npm run lint:wc && npm run lint:html",
+    "lint:html": "eslint *.html",
+    "lint:wc": "polymer lint",
     "postinstall": "polymer install --variants",
     "start": "polymer serve",
     "test": "polymer test -l chrome",
