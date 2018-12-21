@@ -6,10 +6,10 @@
 
 		<title>d2l-audio test</title>
 
-		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<script src="../../web-component-tester/browser.js"></script>
+		<script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script src="../../../wct-browser-legacy/browser.js"></script>
 
-		<link rel="import" href="../d2l-audio.html">
+		<script type="module" src="../d2l-audio.js"></script>
 	</head>
 	<body>
 		<test-fixture id="basic">
@@ -18,13 +18,14 @@
 			</template>
 		</test-fixture>
 
-		<script>
-			suite('d2l-audio', function() {
-				test('instantiating the element works', function() {
-					var element = fixture('basic');
-					assert.equal(element.is, 'd2l-audio');
-				});
-			});
-		</script>
+		<script type="module">
+import '../d2l-audio.js';
+suite('d2l-audio', function() {
+	test('instantiating the element works', function() {
+		var element = fixture('basic');
+		assert.equal(element.is, 'd2l-audio');
+	});
+});
+</script>
 	</body>
 </html>

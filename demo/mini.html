@@ -6,14 +6,11 @@
 				display: block !important;
 			}
 		</style>
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script>
-      /*
-      window.Polymer = window.Polymer || {};
-      window.Polymer.dom = 'shadow';
-      */
-    </script>
-    <link rel="import" href="../d2l-audio-mini.html">
+	<script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+	<script type="module">
+import '../d2l-audio-mini.js';
+</script>
+	<script type="module" src="../d2l-audio-mini.js"></script>
   </head>
   <body>
 		<d2l-audio-mini src="https://ia802508.us.archive.org/5/items/testmp3testfile/mpthreetest.mp3" auto-load></d2l-audio-mini>
