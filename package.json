@@ -25,6 +25,7 @@
     "d2l-typography": "BrightspaceUI/typography#semver:^7",
     "@polymer/iron-a11y-keys-behavior": "^3.0.0",
     "@polymer/iron-flex-layout": "^3.0.0",
+    "d2l-localize-behavior": "BrightspaceUI/localize-behavior#semver:^2",
     "@polymer/iron-range-behavior": "^3.0.0",
     "@polymer/polymer": "^3.0.0"
   },

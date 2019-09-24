@@ -15,6 +15,7 @@ import 'd2l-icons/tier3-icons.js';
 import '@d2l/media-behavior/d2l-media-behavior.js';
 import './d2l-waveform.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import './localize-behavior.js';
 const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
@@ -23,7 +24,6 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 			:host {
 				position: relative;
 				display: inline-block;
-				cursor: pointer;
 			}
 
 		 d2l-icon {
@@ -38,6 +38,11 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 				--d2l-icon-height: 32px;
 				border-left: 2px solid White;
 				border-right: 2px solid White;
+				cursor: pointer;
+			}
+
+			d2l-icon:hover {
+				background: var(--d2l-color-gypsum);
 			}
 
 			.play-icon {
@@ -53,17 +58,17 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 			}
 		</style>
 
-		<div on-tap="_playPause">
+		<div aria-label$="[[localize('AudioPlayer')]]">
 			<d2l-waveform height-ratios="[[ waveformHeightRatios ]]" color="[[ _getWaveformColor(isPlaying) ]]"></d2l-waveform>
 
 			<audio id="media" preload="{{ _getPreload(autoLoad) }}" autoplay="{{ _getAutoplay(autoplay) }}"></audio>
 
-			<d2l-icon hidden$="{{ isPlaying }}" class="play-icon" icon="d2l-tier3:play"></d2l-icon>
-			<d2l-icon hidden$="{{ !isPlaying }}" class="pause-icon" icon="d2l-tier3:pause"></d2l-icon>
+			<d2l-icon hidden$="{{ isPlaying }}" class="play-icon" on-tap="_playPause" icon="d2l-tier3:play" aria-label$="[[localize('Play')]]" tabindex="0"></d2l-icon>
+			<d2l-icon hidden$="{{ !isPlaying }}" class="pause-icon" on-tap="_playPause" icon="d2l-tier3:pause" aria-label$="[[localize('Pause')]]" tabindex="0"></d2l-icon>
 		</div>
 	</template>
 
-	
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);
@@ -74,7 +79,8 @@ Polymer({
 
 	behaviors: [
 		window.D2L.MediaBehavior,
-		IronA11yKeysBehavior
+		IronA11yKeysBehavior.$_documentContainer,
+		D2L.PolymerBehaviors.D2LAudio.LocalizeBehavior
 	],
 
 	properties: {
@@ -85,7 +91,7 @@ Polymer({
 	},
 
 	hostAttributes: {
-		tabindex: 0
+		// tabindex: 0
 	},
 
 	keyBindings: {
