@@ -95,7 +95,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 		</style>
 
 		<div class="container layout vertical center d2l-typography">
-			<div class="play-container" aria-label$="[[localize('AudioPlayer')]]" aria-label="Audio Player">
+			<div class="play-container" aria-label$="[[localize('AudioPlayer')]]">
 				<d2l-waveform color="[[ _getWaveformColor(isPlaying) ]]" height-ratios="[[ waveformHeightRatios ]]" height="60" line-width="4" line-spacing="2"></d2l-waveform>
 				<d2l-icon class="play-icon" hidden$="{{ isPlaying }}" on-tap="_playPause" icon="d2l-tier3:play" aria-label$="[[localize('Play')]]" tabindex="0"></d2l-icon>
 				<d2l-icon class="pause-icon" hidden$="{{ !isPlaying }}" on-tap="_playPause" icon="d2l-tier3:pause" aria-label$="[[localize('Pause')]]" tabindex="0"></d2l-icon>

@@ -21,7 +21,7 @@ window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
 window.D2L.PolymerBehaviors.D2LAudio = window.D2L.PolymerBehaviors.D2LAudio || {};
 window.D2L.PolymerBehaviors.D2LAudio.LangTerms = window.D2L.PolymerBehaviors.D2LAudio.LangTerms || {};
 /**
- * Localizes d2l-evidence-tile
+ * Localizes d2l-audio
  * @polymerBehavior
  */
 D2L.PolymerBehaviors.D2LAudio.LocalizeBehaviorImpl = {
@@ -31,7 +31,6 @@ D2L.PolymerBehaviors.D2LAudio.LocalizeBehaviorImpl = {
 		 */
 		resources: {
 			value: function() {
-				console.log(window.D2L.PolymerBehaviors.D2LAudio.LangTerms);
 				return window.D2L.PolymerBehaviors.D2LAudio.LangTerms;
 			}
 		}

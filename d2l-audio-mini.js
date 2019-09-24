@@ -79,7 +79,7 @@ Polymer({
 
 	behaviors: [
 		window.D2L.MediaBehavior,
-		IronA11yKeysBehavior.$_documentContainer,
+		IronA11yKeysBehavior,
 		D2L.PolymerBehaviors.D2LAudio.LocalizeBehavior
 	],
 
@@ -91,7 +91,6 @@ Polymer({
 	},
 
 	hostAttributes: {
-		// tabindex: 0
 	},
 
 	keyBindings: {
