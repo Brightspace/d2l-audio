@@ -26,19 +26,32 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 				display: inline-block;
 			}
 
-		 button {
+			div {
+				position: relative;
+			}
+
+		 	button {
+				position: absolute;
+				top: 2px;
+				left: 120px;
+				width: 32px;
+				height: 32px;
+				border-left: 2px solid White;
+				border-right: 2px solid White;
+				box-sizing: content-box;
 				margin: 0;
 				padding: 0;
 				background: none;
 				border: none;
+			}
+
+			d2l-icon {
 				position: absolute;
-				left: 43.75%;
-				top: 4px;
+				top: 0;
+				left: 0;
 				background-color: White;
 				--d2l-icon-width: 32px;
 				--d2l-icon-height: 32px;
-				border-left: 2px solid White;
-				border-right: 2px solid White;
 				cursor: pointer;
 			}
 

@@ -68,15 +68,22 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 				position: absolute;
 				margin-left: auto;
 				margin-right: auto;
-				left: 45%;
-				right: 0;
 				top: 8px;
+				width: 58px;
+				height: 58px;
+				border-left: 4px solid White;
+				border-right: 4px solid White;
+				box-sizing: content-box;
+			}
+
+			.play-container d2l-icon {
 				background-color: White;
 				--d2l-icon-width: 58px;
 				--d2l-icon-height: 58px;
-				border-left: 4px solid White;
-				border-right: 4px solid White;
 				cursor: pointer;
+				position: absolute;
+				top: 0;
+				left: -1px;
 			}
 
 			.play-container d2l-icon:hover {
