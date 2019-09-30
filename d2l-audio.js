@@ -41,6 +41,13 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 				display: none;
 			}
 
+			button {
+				margin: 0;
+				padding: 0;
+				background: none;
+				border: none;
+			}
+
 			.container {
 				overflow-x: hidden;
 			}
@@ -57,11 +64,11 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 				align-items: center;
 			}
 
-			.play-container d2l-icon {
+			.play-container button {
 				position: absolute;
 				margin-left: auto;
 				margin-right: auto;
-				left: -2px;
+				left: 45%;
 				right: 0;
 				top: 8px;
 				background-color: White;
@@ -97,8 +104,8 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 		<div class="container layout vertical center d2l-typography">
 			<div class="play-container" aria-label$="[[localize('AudioPlayer')]]">
 				<d2l-waveform color="[[ _getWaveformColor(isPlaying) ]]" height-ratios="[[ waveformHeightRatios ]]" height="60" line-width="4" line-spacing="2"></d2l-waveform>
-				<d2l-icon class="play-icon" hidden$="{{ isPlaying }}" on-tap="_playPause" icon="d2l-tier3:play" aria-label$="[[localize('Play')]]" tabindex="0"></d2l-icon>
-				<d2l-icon class="pause-icon" hidden$="{{ !isPlaying }}" on-tap="_playPause" icon="d2l-tier3:pause" aria-label$="[[localize('Pause')]]" tabindex="0"></d2l-icon>
+				<button hidden$="{{ isPlaying }}" on-tap="_playPause" aria-label$="[[localize('Play')]]"><d2l-icon class="play-icon" icon="d2l-tier3:play"></d2l-icon></button>
+				<button hidden$="{{ !isPlaying }}" on-tap="_playPause" aria-label$="[[localize('Pause')]]"><d2l-icon class="pause-icon" icon="d2l-tier3:pause"></d2l-icon></button>
 			</div>
 
 			<div class="timeline-container layout horizontal center" dir="ltr">
@@ -157,9 +164,6 @@ Polymer({
 		},
 
 		info: String
-	},
-
-	hostAttributes: {
 	},
 
 	keyBindings: {

@@ -26,12 +26,13 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 				display: inline-block;
 			}
 
-		 d2l-icon {
+		 button {
+				margin: 0;
+				padding: 0;
+				background: none;
+				border: none;
 				position: absolute;
-				margin-left: auto;
-				margin-right: auto;
-				left: 1px;
-				right: 0;
+				left: 43.75%;
 				top: 4px;
 				background-color: White;
 				--d2l-icon-width: 32px;
@@ -63,8 +64,8 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 
 			<audio id="media" preload="{{ _getPreload(autoLoad) }}" autoplay="{{ _getAutoplay(autoplay) }}"></audio>
 
-			<d2l-icon hidden$="{{ isPlaying }}" class="play-icon" on-tap="_playPause" icon="d2l-tier3:play" aria-label$="[[localize('Play')]]" tabindex="0"></d2l-icon>
-			<d2l-icon hidden$="{{ !isPlaying }}" class="pause-icon" on-tap="_playPause" icon="d2l-tier3:pause" aria-label$="[[localize('Pause')]]" tabindex="0"></d2l-icon>
+			<button hidden$="{{ isPlaying }}" on-tap="_playPause" aria-label$="[[localize('Play')]]"><d2l-icon class="play-icon" icon="d2l-tier3:play"></d2l-icon></button>
+			<button hidden$="{{ !isPlaying }}" on-tap="_playPause" aria-label$="[[localize('Pause')]]"><d2l-icon class="pause-icon" icon="d2l-tier3:pause"></d2l-icon></button>
 		</div>
 	</template>
 
