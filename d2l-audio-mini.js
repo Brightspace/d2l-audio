@@ -15,6 +15,7 @@ import 'd2l-icons/tier3-icons.js';
 import '@d2l/media-behavior/d2l-media-behavior.js';
 import './d2l-waveform.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import './localize-behavior.js';
 const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
@@ -23,21 +24,39 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 			:host {
 				position: relative;
 				display: inline-block;
-				cursor: pointer;
 			}
 
-		 d2l-icon {
+			div {
+				display: flex;
+				justify-content: center;
+			}
+
+		 	button {
 				position: absolute;
-				margin-left: auto;
-				margin-right: auto;
-				left: 1px;
-				right: 0;
-				top: 4px;
+				top: 2px;
+				width: 32px;
+				height: 32px;
+				border-left: 2px solid White;
+				border-right: 2px solid White;
+				box-sizing: content-box;
+				margin-left: 1px;
+				padding: 0;
+				background: none;
+				border: none;
+			}
+
+			d2l-icon {
+				position: absolute;
+				top: 0;
+				left: 0;
 				background-color: White;
 				--d2l-icon-width: 32px;
 				--d2l-icon-height: 32px;
-				border-left: 2px solid White;
-				border-right: 2px solid White;
+				cursor: pointer;
+			}
+
+			d2l-icon:hover {
+				background: var(--d2l-color-gypsum);
 			}
 
 			.play-icon {
@@ -53,17 +72,17 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 			}
 		</style>
 
-		<div on-tap="_playPause">
+		<div aria-label$="[[localize('AudioPlayer')]]">
 			<d2l-waveform height-ratios="[[ waveformHeightRatios ]]" color="[[ _getWaveformColor(isPlaying) ]]"></d2l-waveform>
 
 			<audio id="media" preload="{{ _getPreload(autoLoad) }}" autoplay="{{ _getAutoplay(autoplay) }}"></audio>
 
-			<d2l-icon hidden$="{{ isPlaying }}" class="play-icon" icon="d2l-tier3:play"></d2l-icon>
-			<d2l-icon hidden$="{{ !isPlaying }}" class="pause-icon" icon="d2l-tier3:pause"></d2l-icon>
+			<button hidden$="{{ isPlaying }}" on-click="_playPause" aria-label$="[[localize('Play')]]"><d2l-icon class="play-icon" icon="d2l-tier3:play"></d2l-icon></button>
+			<button hidden$="{{ !isPlaying }}" on-click="_playPause" aria-label$="[[localize('Pause')]]"><d2l-icon class="pause-icon" icon="d2l-tier3:pause"></d2l-icon></button>
 		</div>
 	</template>
 
-	
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);
@@ -74,7 +93,8 @@ Polymer({
 
 	behaviors: [
 		window.D2L.MediaBehavior,
-		IronA11yKeysBehavior
+		IronA11yKeysBehavior,
+		D2L.PolymerBehaviors.D2LAudio.LocalizeBehavior
 	],
 
 	properties: {
@@ -85,7 +105,6 @@ Polymer({
 	},
 
 	hostAttributes: {
-		tabindex: 0
 	},
 
 	keyBindings: {

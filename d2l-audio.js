@@ -17,6 +17,7 @@ import '@d2l/seek-bar/d2l-seek-bar.js';
 import 'd2l-typography/d2l-typography.js';
 import './d2l-waveform.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import './localize-behavior.js';
 const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
@@ -40,6 +41,13 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 				display: none;
 			}
 
+			button {
+				margin: 0;
+				padding: 0;
+				background: none;
+				border: none;
+			}
+
 			.container {
 				overflow-x: hidden;
 			}
@@ -54,21 +62,36 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				cursor: pointer;
 			}
 
-			.play-container d2l-icon {
+			.play-container button {
 				position: absolute;
 				margin-left: auto;
 				margin-right: auto;
-				left: -2px;
-				right: 0;
 				top: 8px;
+				width: 58px;
+				height: 58px;
+				border-left: 4px solid White;
+				border-right: 4px solid White;
+				box-sizing: content-box;
+			}
+
+			.play-container d2l-icon {
 				background-color: White;
 				--d2l-icon-width: 58px;
 				--d2l-icon-height: 58px;
-				border-left: 4px solid White;
-				border-right: 4px solid White;
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				left: -1px;
+			}
+
+			.play-container d2l-icon:hover {
+				background: var(--d2l-color-gypsum);
+			}
+
+			.play-container d2l-icon:focus {
+				outline: 2px solid var(--d2l-color-celestine);
 			}
 
 			.info-container {
@@ -86,10 +109,10 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 		</style>
 
 		<div class="container layout vertical center d2l-typography">
-			<div class="play-container" on-tap="_playPause">
+			<div class="play-container" aria-label$="[[localize('AudioPlayer')]]">
 				<d2l-waveform color="[[ _getWaveformColor(isPlaying) ]]" height-ratios="[[ waveformHeightRatios ]]" height="60" line-width="4" line-spacing="2"></d2l-waveform>
-				<d2l-icon class="play-icon" hidden$="{{ isPlaying }}" icon="d2l-tier3:play"></d2l-icon>
-				<d2l-icon class="pause-icon" hidden$="{{ !isPlaying }}" icon="d2l-tier3:pause"></d2l-icon>
+				<button hidden$="{{ isPlaying }}" on-tap="_playPause" aria-label$="[[localize('Play')]]"><d2l-icon class="play-icon" icon="d2l-tier3:play"></d2l-icon></button>
+				<button hidden$="{{ !isPlaying }}" on-tap="_playPause" aria-label$="[[localize('Pause')]]"><d2l-icon class="pause-icon" icon="d2l-tier3:pause"></d2l-icon></button>
 			</div>
 
 			<div class="timeline-container layout horizontal center" dir="ltr">
@@ -114,7 +137,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 		</div>
 	</template>
 
-	
+
 
 </dom-module>`;
 
@@ -126,7 +149,8 @@ Polymer({
 
 	behaviors: [
 		window.D2L.MediaBehavior,
-		IronA11yKeysBehavior
+		IronA11yKeysBehavior,
+		D2L.PolymerBehaviors.D2LAudio.LocalizeBehavior
 	],
 
 	properties: {
@@ -147,10 +171,6 @@ Polymer({
 		},
 
 		info: String
-	},
-
-	hostAttributes: {
-		tabindex: 0
 	},
 
 	keyBindings: {
