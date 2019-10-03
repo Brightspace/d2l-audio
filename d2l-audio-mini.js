@@ -104,9 +104,6 @@ Polymer({
 		}
 	},
 
-	hostAttributes: {
-	},
-
 	keyBindings: {
 		'space': '_playPause'
 	},
