@@ -35,6 +35,11 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 
 			d2l-seek-bar {
 				width: 100%;
+				padding: 2px;
+			}
+
+			d2l-seek-bar:focus {
+				outline: 2px solid var(--d2l-color-celestine);
 			}
 
 			d2l-icon[hidden] {
@@ -121,7 +126,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 				</div>
 
 				<div class="flex seek-bar-container">
-					<d2l-seek-bar value="[[ percentComplete ]]" immediate-value="{{ immediateValue }}" on-position-change="_onPositionChange"  on-drag-start="_onSeekStart" on-drag-end="_onSeekEnd"></d2l-seek-bar>
+					<d2l-seek-bar value="[[ percentComplete ]]" immediate-value="{{ immediateValue }}" aria-label$="[[localize('SeekBar')]]" on-position-change="_onPositionChange"  on-drag-start="_onSeekStart" on-drag-end="_onSeekEnd"></d2l-seek-bar>
 				</div>
 
 				<div class="time-container">
