@@ -9,4 +9,5 @@ window.D2L.PolymerBehaviors.D2LAudio.LangTerms.en = {
 	"Play": "Play",
 	"Pause": "Pause",
 	"AudioPlayer": "Audio Player",
+	"SeekBar": "Seek Bar"
 };

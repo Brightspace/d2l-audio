@@ -121,7 +121,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 				</div>
 
 				<div class="flex seek-bar-container">
-					<d2l-seek-bar value="[[ percentComplete ]]" immediate-value="{{ immediateValue }}" on-position-change="_onPositionChange"  on-drag-start="_onSeekStart" on-drag-end="_onSeekEnd"></d2l-seek-bar>
+					<d2l-seek-bar value="[[ percentComplete ]]" immediate-value="{{ immediateValue }}" aria-label$="[[localize('SeekBar')]]" on-position-change="_onPositionChange"  on-drag-start="_onSeekStart" on-drag-end="_onSeekEnd"></d2l-seek-bar>
 				</div>
 
 				<div class="time-container">
