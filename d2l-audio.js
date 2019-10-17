@@ -35,11 +35,6 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 
 			d2l-seek-bar {
 				width: 100%;
-				padding: 2px;
-			}
-
-			d2l-seek-bar:focus {
-				outline: 2px solid var(--d2l-color-celestine);
 			}
 
 			d2l-icon[hidden] {
