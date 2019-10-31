@@ -1,10 +1,16 @@
-import "@polymer/polymer/polymer-legacy.js";
-
+/* eslint-disable quotes, indent */
 window.D2L = window.D2L || {};
 window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
 window.D2L.PolymerBehaviors.D2LAudio = window.D2L.PolymerBehaviors.D2LAudio || {};
 window.D2L.PolymerBehaviors.D2LAudio.LangTerms = window.D2L.PolymerBehaviors.D2LAudio.LangTerms || {};
 
-window.D2L.PolymerBehaviors.D2LAudio.LangTerms.tr = {
-
+/**
+	* This file is auto-generated. Do not modify.
+	* @polymerBehavior
+	*/
+window.D2L.PolymerBehaviors.D2LAudio.LangTerms["en"] = {
+	"Play": "Play",
+	"Pause": "Pause",
+	"AudioPlayer": "Audio Player",
+	"SeekBar": "Seek Bar"
 };
