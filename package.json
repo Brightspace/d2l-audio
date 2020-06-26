@@ -22,7 +22,7 @@
     "d2l-colors": "BrightspaceUI/colors#semver:^4",
     "d2l-icons": "BrightspaceUI/icons#semver:^6",
     "@d2l/media-behavior": "Brightspace/d2l-media-behavior#semver:^1",
-    "@d2l/seek-bar": "Brightspace/d2l-seek-bar#semver:^1",
+    "@d2l/seek-bar": "Brightspace/d2l-seek-bar#f7a07b7f7f089d39003dd0298557462859be5ba4",
     "d2l-typography": "BrightspaceUI/typography#semver:^7",
     "@polymer/iron-a11y-keys-behavior": "^3.0.0",
     "@polymer/iron-flex-layout": "^3.0.0",
