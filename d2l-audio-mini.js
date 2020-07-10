@@ -10,8 +10,7 @@ import '@polymer/polymer/polymer-legacy.js';
 
 import { IronA11yKeysBehavior } from '@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js';
 import '@polymer/iron-flex-layout/iron-flex-layout-classes.js';
-import 'd2l-icons/d2l-icon.js';
-import 'd2l-icons/tier3-icons.js';
+import '@brightspace-ui/core/components/icons/icon.js';
 import '@d2l/media-behavior/d2l-media-behavior.js';
 import './d2l-waveform.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
@@ -20,7 +19,7 @@ const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 	<template strip-whitespace="">
-		<style include="iron-flex iron-flex-alignment d2l-typography">
+		<style include="iron-flex iron-flex-alignment">
 			:host {
 				position: relative;
 				display: inline-block;
@@ -72,7 +71,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-audio-mini">
 			}
 		</style>
 
-		<div aria-label$="[[localize('AudioPlayer')]]">
+		<div aria-label$="[[localize('AudioPlayer')]]" class="d2l-typography">
 			<d2l-waveform height-ratios="[[ waveformHeightRatios ]]" color="[[ _getWaveformColor(isPlaying) ]]"></d2l-waveform>
 
 			<audio id="media" preload="{{ _getPreload(autoLoad) }}" autoplay="{{ _getAutoplay(autoplay) }}"></audio>
