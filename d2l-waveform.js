@@ -1,5 +1,5 @@
 import '@polymer/polymer/polymer-legacy.js';
-import 'd2l-icons/tier3-icons.js';
+import '@brightspace-ui/core/components/icons/icon.js';
 import '@d2l/media-behavior/d2l-media-behavior.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 const $_documentContainer = document.createElement('template');

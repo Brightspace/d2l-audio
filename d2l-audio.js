@@ -10,11 +10,10 @@ import '@polymer/polymer/polymer-legacy.js';
 
 import { IronA11yKeysBehavior } from '@polymer/iron-a11y-keys-behavior/iron-a11y-keys-behavior.js';
 import '@polymer/iron-flex-layout/iron-flex-layout-classes.js';
-import 'd2l-icons/d2l-icon.js';
-import 'd2l-icons/tier3-icons.js';
+import '@brightspace-ui/core/components/icons/icon.js';
+import '@brightspace-ui/core/components/typography/typography.js';
 import '@d2l/media-behavior/d2l-media-behavior.js';
 import '@d2l/seek-bar/d2l-seek-bar.js';
-import 'd2l-typography/d2l-typography.js';
 import './d2l-waveform.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 import './localize-behavior.js';
@@ -22,7 +21,7 @@ const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-audio">
 	<template strip-whitespace="">
-		<style include="iron-flex iron-flex-alignment d2l-typography">
+		<style include="iron-flex iron-flex-alignment">
 			:host {
 				display: inline-block;
 				width: 730px;
