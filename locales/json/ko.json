@@ -1,6 +1,6 @@
 {
-	"Play": "Play",
-	"Pause": "Pause",
-	"AudioPlayer": "Audio Player",
-	"SeekBar": "Seek Bar"
+   "AudioPlayer" : "오디오 플레이어",
+   "Pause" : "일시 중지",
+   "Play" : "재생",
+   "SeekBar" : "탐색 표시줄"
 }

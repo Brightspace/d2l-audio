@@ -1,6 +1,6 @@
 {
-	"Play": "Play",
-	"Pause": "Pause",
-	"AudioPlayer": "Audio Player",
-	"SeekBar": "Seek Bar"
+   "AudioPlayer" : "Ljudspelare",
+   "Pause" : "Pausa",
+   "Play" : "Spela",
+   "SeekBar" : "Sökfält"
 }
