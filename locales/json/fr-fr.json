@@ -1,6 +1,6 @@
 {
    "AudioPlayer" : "Lecteur audio",
-   "Pause" : "Pause",
+   "Pause" : "Mettre en pause",
    "Play" : "Lire",
    "SeekBar" : "Barre de recherche"
 }
