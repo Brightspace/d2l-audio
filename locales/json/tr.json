@@ -1,6 +1,6 @@
 {
-	"Play": "Play",
-	"Pause": "Pause",
-	"AudioPlayer": "Audio Player",
-	"SeekBar": "Seek Bar"
+   "AudioPlayer" : "Ses Oynatıcısı",
+   "Pause" : "Duraklat",
+   "Play" : "Oynat",
+   "SeekBar" : "Arama Çubuğu"
 }

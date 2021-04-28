@@ -1,6 +1,6 @@
 {
-	"Play": "Play",
-	"Pause": "Pause",
-	"AudioPlayer": "Audio Player",
-	"SeekBar": "Seek Bar"
+   "AudioPlayer" : "Chwaraewr Sain",
+   "Pause" : "Oedi",
+   "Play" : "Chwarae",
+   "SeekBar" : "Bar Chwilio"
 }
