@@ -1,6 +1,6 @@
 {
-	"Play": "Play",
-	"Pause": "Pause",
-	"AudioPlayer": "Audio Player",
-	"SeekBar": "Seek Bar"
+   "AudioPlayer" : "オーディオプレーヤー",
+   "Pause" : "一時停止",
+   "Play" : "再生",
+   "SeekBar" : "シークバー"
 }
